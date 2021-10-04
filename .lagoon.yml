@@ -15,6 +15,16 @@ tasks:
     #     name: drush cim
     #     command: drush -y cim
     #     service: cli
+
+    - run:
+        name: IF no Drupal installed, install Drupal
+        command: |
+            cd web
+            if tables=$(drush sqlq "show tables like \"node\";") && [ -z "$tables" ]; then
+                drush si demo_umami
+            fi
+        service: cli
+        shell: bash
     - run:
         name: drush updb
         command: drush -y updb
@@ -22,15 +32,4 @@ tasks:
     - run:
         name: drush cr
         command: drush -y cr
-        service: cli
-
-
-
-environments:
-  9.x:
-    # routes:
-    cronjobs:
-      - name: drush cron
-        schedule: "*/15 * * * *"
-        command: drush cron
         service: cli
