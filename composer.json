@@ -21,6 +21,7 @@
         "cweagans/composer-patches": "1.7.1",
         "drupal/core-project-message": "9.2.5",
         "drupal/core-recommended": "9.2.5",
+        "drupal/imageapi_optimize_webp": "^2.0@beta",
         "drupal/lagoon_logs": "1.1.0",
         "drush/drush": "10.6.0",
         "zaporylie/composer-drupal-optimizations": "1.2.0"
