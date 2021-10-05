@@ -22,6 +22,7 @@ tasks:
             cd web
             if tables=$(drush sqlq "show tables like \"node\";") && [ -z "$tables" ]; then
                 drush si demo_umami
+                drush upwd admin admin
             fi
         service: cli
         shell: bash
